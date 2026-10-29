@@ -5,8 +5,10 @@
 	import Footer from './Footer.svelte';
 </script>
 
-<section class="todoapp">
-	<Header />
-	<TodoList />
-	<Footer />
+<section class="todoapp min-h-screen bg-base-100">
+	<main class="mx-auto max-w-lg p-4">
+		<Header />
+		<TodoList />
+		<Footer />
+	</main>
 </section>

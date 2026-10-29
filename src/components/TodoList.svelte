@@ -34,16 +34,18 @@
 	});
 </script>
 
-<section class="main">
-	<input
-		type="checkbox"
-		id="toggle-all"
-		class="toggle-all"
-		checked={todoStore.activeCount === 0 && todoStore.todos.length > 0}
-		onchange={() => todoStore.toggleAll()}
-	/>
-	<label for="toggle-all">Tandai semua selesai</label>
-	<ul class="todo-list">
+<section class="main mt-6">
+	<label class="label flex cursor-pointer items-center gap-2">
+		<input
+			type="checkbox"
+			id="toggle-all"
+			class={`checkbox checkbox-primary ${todoStore.activeCount === 0 && todoStore.todos.length > 0 ? 'checkbox-checked' : ''}`}
+			checked={todoStore.activeCount === 0 && todoStore.todos.length > 0}
+			onchange={() => todoStore.toggleAll()}
+		/>
+		<span class="text-base-content">Tandai semua selesai</span>
+	</label>
+	<ul class="list-bordered list mt-2">
 		{#each getFilteredTodos() as todo (todo.id)}
 			<TodoItem {todo} />
 		{/each}

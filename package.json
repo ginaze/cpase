@@ -18,13 +18,14 @@
 		"@tailwindcss/forms": "^0.5.11",
 		"@tailwindcss/typography": "^0.5.19",
 		"@tailwindcss/vite": "^4.3.0",
+		"daisyui": "^5.7.50",
 		"globals": "^17.6.0",
 		"svelte": "^5.57.1",
 		"tailwindcss": "^4.3.0",
 		"typescript": "^6.0.3",
 		"vite": "npm:@voidzero-dev/vite-plus-core@1.4.0",
-		"vitest": "5.0.5",
-		"vite-plus": "1.4.0"
+		"vite-plus": "1.4.0",
+		"vitest": "5.0.5"
 	},
 	"imports": {
 		"#lib": "./src/lib/index.js",

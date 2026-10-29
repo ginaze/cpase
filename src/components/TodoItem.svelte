@@ -6,7 +6,7 @@
 	let { todo }: { todo: Todo } = $props();
 
 	let editing = $state(false);
-	let editText = $derived(todo.text);
+	let savedText = $derived(todo.text);
 
 	function toggleComplete() {
 		todoStore.toggle(todo.id);
@@ -18,7 +18,7 @@
 
 	function enterEditMode() {
 		editing = true;
-		editText = todo.text;
+		savedText = todo.text;
 	}
 
 	function exitEditMode() {
@@ -27,30 +27,50 @@
 
 	function saveEdit(event: KeyboardEvent) {
 		if (event.key === 'Enter') {
-			if (editText.trim()) {
+			if (savedText.trim()) {
 				todoStore.todos = todoStore.todos.map((t) =>
-					t.id === todo.id ? { ...t, text: editText.trim() } : t
+					t.id === todo.id ? { ...t, text: savedText.trim() } : t
 				);
 			}
 			exitEditMode();
 		} else if (event.key === 'Escape') {
-			editText = todo.text;
 			exitEditMode();
 		}
 	}
 </script>
 
-<li class:completed={todo.completed} class:editing>
-	<div class="view">
-		<input
-			type="checkbox"
-			class="toggle"
-			id="toggle-{todo.id}"
-			checked={todo.completed}
-			onchange={toggleComplete}
-		/>
-		<label for="toggle-{todo.id}" ondblclick={enterEditMode}>{todo.text}</label>
-		<button class="destroy" aria-label="Hapus" onclick={deleteTodo}></button>
+<li class="list-row list-col-wrap {editing ? 'bg-base-300' : ''}">
+	<div class="view flex items-center gap-3 p-3 list-col-grow">
+		<label class="label flex cursor-pointer items-center gap-2">
+			<input
+				type="checkbox"
+				class={`checkbox checkbox-primary ${todo.completed ? 'checkbox-checked' : ''}`}
+				id="toggle-{todo.id}"
+				checked={todo.completed}
+				onchange={toggleComplete}
+			/>
+			<span
+				class={todo.completed ? 'text-base-content/50 line-through' : 'text-base-content'}
+				role="button"
+				tabindex="0"
+				ondblclick={enterEditMode}
+				onkeydown={(e) => e.key === 'Enter' && enterEditMode()}>{todo.text}</span
+			>
+		</label>
+		<button
+			class="btn btn-ghost text-base-content/50 opacity-0 btn-neutral btn-xs hover:opacity-100"
+			aria-label="Hapus"
+			onclick={deleteTodo}
+		>
+			×
+		</button>
 	</div>
-	<input class="edit" bind:value={editText} onkeydown={saveEdit} onblur={exitEditMode} />
+	{#if editing}
+		<input
+			class="input-bordered input w-full input-lg"
+			bind:value={savedText}
+			onkeydown={saveEdit}
+			onblur={exitEditMode}
+		/>
+	{/if}
 </li>

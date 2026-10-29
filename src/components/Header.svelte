@@ -13,9 +13,9 @@
 </script>
 
 <header class="header">
-	<h1>tugas</h1>
+	<h1 class="mb-4 text-3xl font-bold text-base-content">tugas</h1>
 	<input
-		class="new-todo"
+		class="input-bordered input w-full input-lg"
 		placeholder="Apa yang perlu dilakukan?"
 		bind:value={text}
 		onkeydown={handleKeydown}
