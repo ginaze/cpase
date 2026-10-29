@@ -1,6 +1,9 @@
+<!-- src/components/App.svelte -->
 <script lang="ts">
+	import Header from './Header.svelte';
+	import '../app.css';
 </script>
 
-<main>
-	<h1>tugas</h1>
-</main>
+<section class="todoapp">
+	<Header />
+</section>
