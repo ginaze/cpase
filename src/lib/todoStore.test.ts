@@ -18,4 +18,14 @@ describe('TodoStore', () => {
 		todoStore.toggle(id);
 		expect(todoStore.todos[0].completed).toBe(true);
 	});
+
+	it('toggles all todos at once', () => {
+		todoStore.add('Tugas 1');
+		todoStore.add('Tugas 2');
+		todoStore.todos = todoStore.todos.map((t) => ({ ...t, completed: false }));
+		todoStore.toggleAll();
+		expect(todoStore.todos.every((t) => t.completed)).toBe(true);
+		todoStore.toggleAll();
+		expect(todoStore.todos.every((t) => !t.completed)).toBe(true);
+	});
 });

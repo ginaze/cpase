@@ -33,6 +33,12 @@ class TodoStore {
 		}
 	}
 
+	toggleAll() {
+		const allCompleted = this.activeCount === 0;
+		this.todos = this.todos.map((t) => ({ ...t, completed: !allCompleted }));
+		this.save();
+	}
+
 	remove(id: string) {
 		this.todos = this.todos.filter((t) => t.id !== id);
 		this.save();
