@@ -1,8 +1,8 @@
-# Spec: TodoMVC Svelte Implementation
+# Spec: Cpase Svelte Implementation
 
 ## Objective
 
-Build a standard TodoMVC application using Svelte 5 (Runes) to serve as classroom demonstration material. All user-facing UI text must be in Bahasa Indonesia. The implementation adheres strictly to the official [TodoMVC Spec](https://raw.githubusercontent.com/tastejs/todomvc/refs/heads/master/app-spec.md).
+Build a standard Cpase application using Svelte 5 (Runes) to serve as classroom demonstration material. All user-facing UI text must be in Bahasa Indonesia. The implementation adheres strictly to the official [Cpase Spec](https://raw.githubusercontent.com/tastejs/todomvc/refs/heads/master/app-spec.md).
 
 ## Tech Stack
 
@@ -41,9 +41,9 @@ docs/                 → Classroom documentation and feature explainers
 
 ## UI Language Mapping (Bahasa Indonesia)
 
-| Standard TodoMVC (EN)      | Indonesian (UI)             |
+| Standard Cpase (EN)        | Indonesian (UI)             |
 | -------------------------- | --------------------------- |
-| "todos" (Header)           | "tugas"                     |
+| "todos" (Header)           | "Cpase"                     |
 | "What needs to be done?"   | "Apa yang perlu dilakukan?" |
 | "items left" / "item left" | "tugas tersisa"             |
 | "All"                      | "Semua"                     |
@@ -55,7 +55,7 @@ docs/                 → Classroom documentation and feature explainers
 ## Testing Strategy
 
 - Unit tests for state management using Vitest (`src/lib/todoStore.test.ts`)
-- Integration tests for TodoMVC interactions.
+- Integration tests for Cpase interactions.
 
 ## Boundaries
 
@@ -65,7 +65,7 @@ docs/                 → Classroom documentation and feature explainers
 
 ## Success Criteria
 
-1. Full compliance with TodoMVC specification (hash filtering, editing, toggling, clearing completed, localStorage persistence).
+1. Full compliance with Cpase specification (hash filtering, editing, toggling, clearing completed, localStorage persistence).
 2. All UI strings translated accurately into Bahasa Indonesia.
 3. Every feature has corresponding documentation in `docs/`.
 4. Incremental commits representing logical steps.

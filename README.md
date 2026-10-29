@@ -1,8 +1,8 @@
-# TodoMVC Svelte 5 (Bahasa Indonesia)
+# Cpase Svelte 5 (Bahasa Indonesia)
 
-TodoMVC classroom demonstration project built with **Svelte 5 (Runes)**. All user-facing UI text is in **Bahasa Indonesia**.
+Cpase classroom demonstration project built with **Svelte 5 (Runes)**. All user-facing UI text is in **Bahasa Indonesia**.
 
-Based on the official [TodoMVC Spec](https://raw.githubusercontent.com/tastejs/todomvc/refs/heads/master/app-spec.md) from the parent project **[tastejs/todomvc](https://github.com/tastejs/todomvc)** — the canonical reference implementation for comparing MV* frameworks.
+Based on the official [Cpase Spec](https://raw.githubusercontent.com/tastejs/Cpase/refs/heads/master/app-spec.md) from the parent project **[tastejs/Cpase](https://github.com/tastejs/Cpase)** — the canonical reference implementation for comparing MV* frameworks.
 
 ## Tech Stack
 
@@ -24,7 +24,7 @@ Vanilla works for small demos but requires manually wiring DOM events, state upd
 
 ### React
 
-React is excellent but brings a larger conceptual surface (hooks, useEffect dependency arrays, memoization, virtual DOM reconciliation). For a classroom TodoMVC, Svelte's `$state`, `$derived`, and `$effect` runes are more direct and readable for beginners.
+React is excellent but brings a larger conceptual surface (hooks, useEffect dependency arrays, memoization, virtual DOM reconciliation). For a classroom Cpase, Svelte's `$state`, `$derived`, and `$effect` runes are more direct and readable for beginners.
 
 ### Vue
 
@@ -76,4 +76,4 @@ docs/             → Classroom documentation
 
 ## Parent Reference
 
-This project follows the **[tastejs/todomvc](https://github.com/tastejs/todomvc)** specification as its general idea and behavioral reference. UI strings are translated into Bahasa Indonesia for classroom use.
+This project follows the **[tastejs/Cpase](https://github.com/tastejs/Cpase)** specification as its general idea and behavioral reference. UI strings are translated into Bahasa Indonesia for classroom use.

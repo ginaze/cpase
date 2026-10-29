@@ -7,7 +7,7 @@ class TodoStore {
 	constructor() {
 		// Load from localStorage
 		if (typeof window !== 'undefined') {
-			const saved = localStorage.getItem('todomvc-svelte5');
+			const saved = localStorage.getItem('cpase-svelte5');
 			if (saved) {
 				this.todos = JSON.parse(saved);
 			}
@@ -16,7 +16,7 @@ class TodoStore {
 
 	save() {
 		if (typeof window !== 'undefined') {
-			localStorage.setItem('todomvc-svelte5', JSON.stringify(this.todos));
+			localStorage.setItem('cpase-svelte5', JSON.stringify(this.todos));
 		}
 	}
 

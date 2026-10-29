@@ -13,7 +13,7 @@
 </script>
 
 <header class="header">
-	<h1 class="mb-4 text-3xl font-bold text-base-content">tugas</h1>
+	<h1 class="mb-4 text-3xl font-bold text-base-content">Cpase</h1>
 	<input
 		class="input-bordered input w-full input-lg"
 		placeholder="Apa yang perlu dilakukan?"
