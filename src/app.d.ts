@@ -1,5 +1,8 @@
-// See https://svelte.dev/docs/kit/types#app.d.ts
-// for information about these interfaces
+declare module '*.css' {
+	const content: string;
+	export default content;
+}
+
 declare global {
 	namespace App {
 		// interface Error {}

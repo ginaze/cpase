@@ -1,0 +1,6 @@
+- [ ] Task 1: Convert project from SvelteKit to pure Svelte 5 + Vite
+- [ ] Task 2: Create Types and Svelte 5 Todo Store with tests
+- [ ] Task 3: Create Header component (add todo)
+- [ ] Task 4: Create TodoItem component (display, toggle, edit, delete)
+- [ ] Task 5: Create TodoList & Footer components (batch operations, filter, counter)
+- [ ] Task 6: Connect App layout, implement Hash-based filtering & LocalStorage persistence

@@ -1,7 +1,6 @@
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig, lazyPlugins } from 'vite-plus';
-import adapter from '@sveltejs/adapter-auto';
-import { sveltekit } from '@sveltejs/kit/vite';
+import { svelte } from '@sveltejs/vite-plugin-svelte';
 
 export default defineConfig({
 	staged: {
@@ -171,7 +170,7 @@ export default defineConfig({
 		printWidth: 100,
 		sortPackageJson: false,
 		sortTailwindcss: {
-			stylesheet: './src/routes/layout.css'
+			stylesheet: './src/app.css'
 		},
 		svelte: {},
 		associations: [
@@ -191,12 +190,10 @@ export default defineConfig({
 	},
 	plugins: lazyPlugins(() => [
 		tailwindcss(),
-		sveltekit({
+		svelte({
 			compilerOptions: {
-				runes: ({ filename }) =>
-					filename.split(/[/\\]/).includes('node_modules') ? undefined : true
-			},
-			adapter: adapter()
+				runes: true
+			}
 		})
 	]),
 	test: {
@@ -207,20 +204,9 @@ export default defineConfig({
 			{
 				extends: './vite.config.ts',
 				test: {
-					name: 'client',
+					name: 'default',
 					environment: 'node',
-					include: ['src/**/*.svelte.{test,spec}.{js,ts}'],
-					exclude: ['src/lib/server/**']
-				}
-			},
-
-			{
-				extends: './vite.config.ts',
-				test: {
-					name: 'server',
-					environment: 'node',
-					include: ['src/**/*.{test,spec}.{js,ts}'],
-					exclude: ['src/**/*.svelte.{test,spec}.{js,ts}']
+					include: ['src/**/*.test.{js,ts}', 'src/**/*.spec.{js,ts}']
 				}
 			}
 		]

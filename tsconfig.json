@@ -1,8 +1,21 @@
 {
-	"extends": "$app/tsconfig",
 	"compilerOptions": {
+		"target": "ES2021",
+		"useDefineForClassFields": true,
+		"module": "ESNext",
+		"lib": ["ES2021", "DOM", "DOM.Iterable"],
+		"skipLibCheck": true,
+		"moduleResolution": "bundler",
+		"allowImportingTsExtensions": true,
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"noEmit": true,
 		"strict": true,
-		"types": ["$app/types"]
+		"types": ["vite/client"],
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"noFallthroughCasesInSwitch": true
 	},
-	"include": ["src", "vite.config.ts"]
+	"include": ["src"],
+	"references": [{ "path": "./tsconfig.node.json" }]
 }
