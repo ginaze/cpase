@@ -26,6 +26,7 @@ export default defineConfig({
 			'**/.wrangler',
 			'.svelte-kit',
 			'build',
+			'dist',
 			'**/.DS_Store',
 			'**/Thumbs.db',
 			'**/.env',

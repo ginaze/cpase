@@ -3,10 +3,10 @@
 	import { todoStore } from '#lib/todoStore.svelte';
 	import type { Todo } from '#lib/types';
 
-	export let todo: Todo;
+	let { todo }: { todo: Todo } = $props();
 
 	let editing = $state(false);
-	let editText = $state(todo.text);
+	let editText = $derived(todo.text);
 
 	function toggleComplete() {
 		todoStore.toggle(todo.id);
@@ -42,15 +42,15 @@
 
 <li class:completed={todo.completed} class:editing>
 	<div class="view">
-		<input type="checkbox" class="toggle" checked={todo.completed} onchange={toggleComplete} />
-		<label ondblclick={enterEditMode}>{todo.text}</label>
-		<button class="destroy" onclick={deleteTodo}></button>
+		<input
+			type="checkbox"
+			class="toggle"
+			id="toggle-{todo.id}"
+			checked={todo.completed}
+			onchange={toggleComplete}
+		/>
+		<label for="toggle-{todo.id}" ondblclick={enterEditMode}>{todo.text}</label>
+		<button class="destroy" aria-label="Hapus" onclick={deleteTodo}></button>
 	</div>
-	<input
-		class="edit"
-		bind:value={editText}
-		onkeydown={saveEdit}
-		onblur={exitEditMode}
-		autofocus
-	/>
+	<input class="edit" bind:value={editText} onkeydown={saveEdit} onblur={exitEditMode} />
 </li>

@@ -17,7 +17,6 @@
 	<input
 		class="new-todo"
 		placeholder="Apa yang perlu dilakukan?"
-		autofocus
 		bind:value={text}
 		onkeydown={handleKeydown}
 	/>
