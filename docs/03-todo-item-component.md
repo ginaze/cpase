@@ -1,11 +1,10 @@
 # Dokumentasi: Komponen TodoItem
 
-Komponen untuk menampilkan satu item tugas.
+Komponen TodoItem merender satu baris tugas dengan opsi untuk mencentang atau menghapusnya.
 
 ## Fitur
 
-- Menampilkan teks tugas
-- Mengubah status selesai (checkbox toggle)
-- Mengedit teks tugas (dblclick untuk edit, Enter untuk menyimpan, Escape untuk batal)
-- Menghapus tugas
-- Kelas CSS `completed` dan `editing` ditambahkan berdasarkan status
+- Tampilan reaktif menggunakan properti `$props`.
+- Tombol centang untuk menandai selesai.
+- Tombol hapus (ikon X) untuk membuang tugas.
+- Pengeditan teks tugas dengan klik dua kali (_double click_).

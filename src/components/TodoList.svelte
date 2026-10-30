@@ -7,14 +7,21 @@
 	let currentFilter = $state('semua');
 
 	function getFilteredTodos() {
-		switch (currentFilter) {
-			case 'aktif':
-				return todoStore.todos.filter((t) => !t.completed);
-			case 'selesai':
-				return todoStore.todos.filter((t) => t.completed);
-			default:
-				return todoStore.todos;
-		}
+		const filtered = (() => {
+			switch (currentFilter) {
+				case 'aktif':
+					return todoStore.todos.filter((t) => !t.completed);
+				case 'selesai':
+					return todoStore.todos.filter((t) => t.completed);
+				default:
+					return todoStore.todos;
+			}
+		})();
+
+		if (!todoStore.searchQuery) return filtered;
+		return filtered.filter((t) =>
+			t.text.toLowerCase().includes(todoStore.searchQuery.toLowerCase())
+		);
 	}
 
 	onMount(() => {
@@ -35,6 +42,16 @@
 </script>
 
 <section class="main mt-6">
+	{#if todoStore.todos.length > 5}
+		<div class="mb-4">
+			<input
+				type="text"
+				placeholder="Cari tugas..."
+				class="input-bordered input w-full input-sm"
+				bind:value={todoStore.searchQuery}
+			/>
+		</div>
+	{/if}
 	{#if todoStore.todos.length > 0}
 		<label class="label flex cursor-pointer items-center gap-2">
 			<input

@@ -1,10 +1,9 @@
 # Dokumentasi: Komponen Header
 
-Komponen untuk input tugas baru.
+Komponen Header menangani input tugas baru dan menampilkan logo aplikasi.
 
 ## Fitur
 
-- Input teks untuk tugas
-- Validasi input (tidak menambahkan tugas kosong)
-- Menyimpan tugas ke `todoStore` saat menekan Enter
-- Menggunakan Bahasa Indonesia untuk placeholder
+- Logo inline di sebelah kiri nama aplikasi (Cpase).
+- Input teks besar untuk menambah tugas baru.
+- Penambahan tugas dipicu oleh tombol "Enter".

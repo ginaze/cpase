@@ -46,21 +46,27 @@ Bayangkan aplikasi ini seperti **meja kerja**. Ada tiga bagian utama:
 - **Jangan Mengubah Data Langsung di Dalam Asisten (`$effect`)**: Ini kesalahan umum yang bisa membuat aplikasi bingung dan mengulang terus menerus. Gunakan `$effect` hanya untuk urusan luar (seperti menyimpan ke browser), bukan untuk mengubah data tugas itu sendiri.
 - **Satu Sumber Data**: Ingat, daftar tugas (`$state`) adalah "sumber kebenaran". Semua tampilan lain di layar hanyalah cara aplikasi menampilkan data tersebut.
 
-## 6. Contoh Kode Sederhana
+## 7. Penjelasan File di Folder Proyek
 
-Beginilah cara kita menulis kode untuk tugas tersebut:
+Jika kamu melihat folder proyek (`todomvc/`), ada beberapa file yang mungkin tampak asing. Berikut penjelasan singkatnya:
 
-```svelte
-<script>
-	// Membuat tempat penyimpanan tugas
-	let tugas = $state([]);
+- `.agents/` & `AGENTS.md`: Instruksi perilaku untuk asisten AI.
+- `.codegraph/`: File indeks untuk kecerdasan kode (mempercepat pencarian).
+- `.devenv/` & `devenv.*`: Konfigurasi lingkungan pengembangan (menggunakan Nix).
+- `.opencode/` & `opencode.jsonc`: Pengaturan proyek untuk alat OpenCode.
+- `.vite-hooks/` & `vite.config.ts`: Konfigurasi untuk Vite (alat pengumpul kode).
+- `bun.lock`: Daftar versi paket yang terpasang agar konsisten.
+- `wrangler.jsonc`: Konfigurasi untuk menaruh aplikasi di Cloudflare.
+- `SPEC.md`: Dokumen spesifikasi teknis proyek.
+- `tsconfig.json`: Konfigurasi aturan TypeScript.
 
-	// Menghitung berapa tugas yang tersisa secara otomatis
-	let sisa = $derived(tugas.filter((t) => !t.selesai).length);
-</script>
+## 8. Mengapa Tidak Ada "SvelteKit" atau "Adapter"?
 
-<p>Sisa tugas: {sisa}</p>
-```
+Mungkin kamu membaca tentang "SvelteKit" atau "Adapter" di luar sana. Di proyek Cpase ini, kita tidak menggunakannya karena:
+
+- **Cpase adalah SPA (Single Page Application)**: Artinya, semua kode berjalan langsung di browser kamu tanpa butuh server khusus untuk "berpikir".
+- **Vite**: Kita menggunakan alat bernama "Vite" yang sudah sangat pintar membungkus kode kita menjadi file sederhana yang bisa dibaca browser apapun.
+- **Tanpa Ribet**: Karena aplikasi ini sederhana, kita tidak butuh "penerjemah" (adapter) tambahan. File hasil rakitan (_build_) bisa langsung diletakkan di mana saja dan langsung jalan!
 
 ---
 

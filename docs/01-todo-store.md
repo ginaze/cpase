@@ -1,10 +1,10 @@
-# Documentation: Svelte 5 Todo Store (Runes)
+# Dokumentasi: Todo Store Svelte 5 (Runes)
 
-The state is managed using a class with Svelte 5 `$state` reactive rune.
+Status aplikasi dikelola menggunakan class dengan rune reaktif `$state` dari Svelte 5.
 
-## Features
+## Fitur
 
-- `$state` rune for reactive state tracking
-- CRUD operations for Todos
-- Synchronized with `localStorage`
-- Svelte 5 class-based store approach (cleaner than legacy Svelte 4 writable stores)
+- Rune `$state` untuk pelacakan status reaktif
+- Operasi CRUD untuk Todo
+- Sinkronisasi otomatis dengan `localStorage`
+- Pendekatan store berbasis class Svelte 5 (lebih bersih daripada writable stores lama di Svelte 4)

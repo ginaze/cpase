@@ -1,79 +1,79 @@
 # Cpase Svelte 5 (Bahasa Indonesia)
 
-Cpase classroom demonstration project built with **Svelte 5 (Runes)**. All user-facing UI text is in **Bahasa Indonesia**.
+Proyek demonstrasi kelas Cpase yang dibangun dengan **Svelte 5 (Runes)**. Semua teks antarmuka pengguna (UI) menggunakan **Bahasa Indonesia**.
 
-Based on the official [Cpase Spec](https://raw.githubusercontent.com/tastejs/Cpase/refs/heads/master/app-spec.md) from the parent project **[tastejs/Cpase](https://github.com/tastejs/Cpase)** — the canonical reference implementation for comparing MV* frameworks.
+Berdasarkan [todomvc Spec](https://raw.githubusercontent.com/tastejs/todomvc/refs/heads/master/app-spec.md) resmi dari proyek induk **[tastejs/todomvc](https://github.com/tastejs/todomvc)** — referensi implementasi standar untuk membandingkan kerangka kerja (framework) MV*.
 
-## Tech Stack
+## Teknologi yang Digunakan
 
-| Tool               | Purpose                                                       |
+| Alat               | Kegunaan                                                      |
 | ------------------ | ------------------------------------------------------------- |
-| **Svelte 5**       | UI framework (Runes-based reactivity)                         |
-| **Vite+ (vp)**     | Unified toolchain CLI (dev server, build, test, lint, format) |
-| **Vitest 5**       | Unit testing framework                                        |
-| **daisyUI 5**      | Component library for Tailwind CSS                            |
-| **Tailwind CSS 4** | Utility-first CSS framework                                   |
-| **TypeScript 6**   | Static type checking                                          |
-| **Bun 1.4**        | Package manager and runtime                                   |
+| **Svelte 5**       | Framework UI (reaktivitas berbasis Runes)                     |
+| **Vite+ (vp)**     | CLI toolchain terpadu (server dev, build, test, lint, format) |
+| **Vitest 5**       | Framework unit testing                                        |
+| **daisyUI 5**      | Perpustakaan komponen untuk Tailwind CSS                      |
+| **Tailwind CSS 4** | Framework CSS berbasis utility                                |
+| **TypeScript 6**   | Pengecekan tipe statis                                        |
+| **Bun 1.4**        | Manajer paket dan runtime                                     |
 
-## Why Svelte 5 Instead of Vanilla / React / Vue?
+## Mengapa Svelte 5?
 
-### Vanilla HTML/CSS/JS
+### Dibandingkan Vanilla HTML/CSS/JS
 
-Vanilla works for small demos but requires manually wiring DOM events, state updates, and localStorage sync. Svelte handles reactivity declaratively — less boilerplate, fewer bugs, easier to teach.
+Vanilla cocok untuk demo kecil, tetapi membutuhkan pengaturan manual untuk event DOM, pembaruan status, dan sinkronisasi localStorage. Svelte menangani reaktivitas secara deklaratif — lebih sedikit kode boilerplate, lebih sedikit bug, dan lebih mudah diajarkan.
 
-### React
+### Dibandingkan React
 
-React is excellent but brings a larger conceptual surface (hooks, useEffect dependency arrays, memoization, virtual DOM reconciliation). For a classroom Cpase, Svelte's `$state`, `$derived`, and `$effect` runes are more direct and readable for beginners.
+React sangat bagus tetapi memiliki beban konsep yang lebih besar (hooks, array dependensi useEffect, memoisasi, rekonsiliasi virtual DOM). Untuk Cpase di kelas, rune `$state`, `$derived`, dan `$effect` milik Svelte lebih langsung dan mudah dibaca bagi pemula.
 
-### Vue
+### Dibandingkan Vue
 
-Vue is similar in spirit to Svelte, but Svelte compiles away the framework at build time — the shipped bundle contains only the code you use, resulting in smaller output and no runtime framework overhead. Svelte's rune syntax also maps closely to plain JavaScript variables, lowering the learning curve.
+Vue mirip dengan Svelte, tetapi Svelte menghilangkan framework pada saat build — paket yang dikirimkan hanya berisi kode yang kamu gunakan, sehingga hasilnya lebih kecil. Sintaks rune Svelte juga sangat mirip dengan variabel JavaScript biasa, sehingga lebih mudah dipelajari.
 
-### Key advantages for teaching
+### Keunggulan Utama untuk Pembelajaran
 
-- **Compile-time reactivity**: No virtual DOM runtime; students see plain JS in devtools.
-- **Svelte 5 Runes**: Explicit reactivity (`$state`, `$derived`, `$effect`) makes data flow obvious.
-- **Single-file components**: Markup, logic, and styles co-located in `.svelte` files.
-- **Tiny bundle**: Framework compiles out; only your application code ships.
+- **Reaktivitas waktu kompilasi**: Tidak ada runtime virtual DOM; siswa melihat JS biasa di devtools.
+- **Svelte 5 Runes**: Reaktivitas eksplisit (`$state`, `$derived`, `$effect`) membuat aliran data menjadi jelas.
+- **Komponen file tunggal**: Markup, logika, dan gaya berada dalam satu file `.svelte`.
+- **Ukuran kecil**: Framework dikompilasi keluar; hanya kode aplikasi kamu yang dikirim ke browser.
 
-## What is Vite?
+## Apa itu Vite?
 
-**Vite** is a fast frontend build tool and dev server. It uses native ES modules in development (near-instant cold start) and Rollup/Rolldown for production builds. It replaces older bundlers like Webpack with a leaner, faster pipeline.
+**Vite** adalah alat build frontend dan server dev yang cepat. Vite menggunakan modul ES asli saat pengembangan (start-up sangat instan) dan Rollup/Rolldown untuk build produksi.
 
-## What is Vite+?
+## Apa itu Vite+?
 
-**Vite+ (vp CLI)** is the unified toolchain for the web. It combines Vite, Vitest, Oxlint, Oxfmt, Rolldown, tsdown, and Vite Task into one CLI. Instead of managing separate config files and tools, `vp dev`, `vp build`, `vp test`, and `vp check` handle the full development cycle.
+**Vite+ (vp CLI)** adalah toolchain terpadu untuk web. Ia menggabungkan Vite, Vitest, Oxlint, Oxfmt, Rolldown, tsdown, dan Vite Task ke dalam satu CLI. Alih-alih mengelola banyak file konfigurasi, cukup gunakan `vp dev`, `vp build`, `vp test`, dan `vp check`.
 
-## What is Bun?
+## Apa itu Bun?
 
-**Bun** is a fast JavaScript/TypeScript runtime and package manager. It installs dependencies quickly, runs TypeScript natively, and serves as the project's package manager (declared via `"packageManager": "bun@1.4.4"` in `package.json`).
+**Bun** adalah runtime JavaScript/TypeScript dan manajer paket yang sangat cepat. Bun menginstal dependensi dengan cepat dan menjalankan TypeScript secara asli.
 
-## Commands
+## Perintah
 
 ```bash
-bunx vp dev       # Start dev server
-bunx vp build     # Production build
-bunx vp preview   # Preview production build
-bunx vp test      # Run tests
-bunx vp check     # Lint + format check
-bunx vp fmt .     # Format code
+bunx vp dev       # Menjalankan server pengembangan
+bunx vp build     # Membuat build produksi
+bunx vp preview   # Pratinjau hasil build produksi
+bunx vp test      # Menjalankan pengujian (test)
+bunx vp check     # Pengecekan lint + format
+bunx vp fmt .     # Merapikan format kode
 ```
 
-## Project Structure
+## Struktur Proyek
 
 ```
 src/
-├── components/   → Svelte UI components (Header, TodoList, TodoItem, Footer)
-├── lib/          → Types and Svelte 5 store
+├── components/   → Komponen UI Svelte (Header, TodoList, TodoItem, Footer)
+├── lib/          → Tipe data dan store Svelte 5
 │   ├── types.ts
 │   └── todoStore.svelte.ts
-├── main.ts       → Entry point (imports app.css)
-├── app.css       → Tailwind + daisyUI
-└── index.html    → Root HTML
-docs/             → Classroom documentation
+├── main.ts       → Titik masuk aplikasi (mengimpor app.css)
+├── app.css       → Pengaturan Tailwind + daisyUI
+└── index.html    → File HTML utama
+docs/             → Dokumentasi pembelajaran
 ```
 
-## Parent Reference
+## Referensi Induk
 
-This project follows the **[tastejs/Cpase](https://github.com/tastejs/Cpase)** specification as its general idea and behavioral reference. UI strings are translated into Bahasa Indonesia for classroom use.
+Proyek ini mengikuti spesifikasi **[tastejs/todomvc](https://github.com/tastejs/todomvc)** sebagai ide umum dan referensi perilaku aplikasi. Teks UI diterjemahkan ke dalam Bahasa Indonesia untuk kebutuhan kelas.

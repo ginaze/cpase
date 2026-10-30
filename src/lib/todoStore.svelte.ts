@@ -3,6 +3,7 @@ import { Todo } from './types';
 
 class TodoStore {
 	todos = $state<Todo[]>([]);
+	searchQuery = $state('');
 
 	constructor() {
 		// Load from localStorage
